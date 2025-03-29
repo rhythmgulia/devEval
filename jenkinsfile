@@ -1,0 +1,25 @@
+pipeline{
+    agents any
+    tools{
+        maven 'maven'
+    }
+    stages{
+        stage('Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'mvn run build'
+            }
+        }
+        // stage('Run JAR'){
+        //     steps{
+        //         script{
+        //             def output= sh(script:'', returnStdout: true).trim();
+        //         }
+        //     }
+        // }
+    }
+}
