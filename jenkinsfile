@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'maven'
+        node 'nodejs'
     }
     stages{
         stage('Build'){
@@ -15,12 +15,5 @@ pipeline{
                 bat 'mvn run build'
             }
         }
-        // stage('Run JAR'){
-        //     steps{
-        //         script{
-        //             def output= sh(script:'', returnStdout: true).trim();
-        //         }
-        //     }
-        // }
     }
 }
